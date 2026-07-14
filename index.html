@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadeem Ullah — Web Designer & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181B;
+    --ridge:#24423F;
+    --ridge-2:#345C56;
+    --paper:#F2EEE3;
+    --slate:#1B2422;
+    --copper:#C1793B;
+    --mist:#9DB3AF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--slate);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .display{font-family:'Fraunces', serif;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 6vw;}
+
+  /* ---------- nav ---------- */
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 6vw;
+    position:sticky; top:0; z-index:60;
+    background:rgba(242,238,227,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(27,36,34,0.08);
+  }
+  .logo{font-family:'Fraunces',serif; font-weight:600; font-size:19px; letter-spacing:.01em;}
+  .logo span{color:var(--copper);}
+  nav .links{display:flex; gap:30px; font-size:14px; font-weight:500;}
+  nav .links a:hover{color:var(--copper);}
+  .nav-cta{
+    background:var(--ridge); color:var(--paper);
+    padding:9px 20px; border-radius:3px; font-size:13px; font-weight:600;
+  }
+  @media(max-width:720px){ nav .links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+    padding:100px 6vw 0;
+  }
+  .hero-inner{
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns:1.3fr .9fr; gap:40px;
+    align-items:end;
+    padding-bottom:70px;
+    position:relative; z-index:2;
+  }
+  @media(max-width:820px){ .hero-inner{grid-template-columns:1fr;} }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--copper); letter-spacing:.08em;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(38px,6vw,64px);
+    font-weight:600;
+    line-height:1.06;
+    margin-bottom:18px;
+  }
+  .hero h1 em{font-style:italic; color:var(--mist); font-weight:400;}
+  .hero p.lede{
+    font-size:17px; color:var(--mist); max-width:480px; line-height:1.6;
+    margin-bottom:34px;
+  }
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:3px; font-weight:600; font-size:14.5px;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-copper{background:var(--copper); color:var(--ink);}
+  .btn-outline{border:1px solid rgba(242,238,227,0.35); color:var(--paper);}
+  .hero-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; color:var(--mist);
+    border-left:2px solid var(--copper);
+    padding-left:18px;
+    line-height:2;
+  }
+  .hero-meta strong{color:var(--paper); font-weight:500;}
+  .avatar-row{
+    display:flex; align-items:center; gap:16px; margin-bottom:22px;
+  }
+  .avatar-row img{
+    width:64px; height:64px; border-radius:50%;
+    object-fit:cover; border:2px solid var(--copper);
+  }
+  .avatar-row .eyebrow{margin-bottom:0;}
+
+  /* mountain ridge signature */
+  .ridge-svg{display:block; width:100%; height:auto; position:relative; z-index:1;}
+
+  /* ---------- ticker strip ---------- */
+  .strip{
+    background:var(--ridge);
+    color:var(--paper);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.05em;
+    text-align:center;
+    padding:11px 0;
+  }
+
+  /* ---------- section shared ---------- */
+  .section{padding:80px 6vw;}
+  .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--copper); letter-spacing:.1em;
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-size:clamp(28px,4vw,40px);
+    font-weight:600;
+    margin-bottom:16px;
+  }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:start;
+    max-width:1000px; margin:0 auto;
+  }
+  @media(max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{font-size:16px; line-height:1.75; color:var(--slate); margin-bottom:16px;}
+  .stat-list{border-top:1px solid rgba(27,36,34,0.15);}
+  .stat-row{
+    display:flex; justify-content:space-between; padding:16px 0;
+    border-bottom:1px solid rgba(27,36,34,0.15);
+    font-size:14px;
+  }
+  .stat-row .label{color:#6b756f;}
+  .stat-row .val{font-weight:600; font-family:'JetBrains Mono', monospace; font-size:13px;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--ink); color:var(--paper);}
+  .services .kicker{color:var(--copper);}
+  .svc-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:1px; background:rgba(242,238,227,0.12);
+    border:1px solid rgba(242,238,227,0.12);
+    max-width:1100px; margin:0 auto;
+  }
+  .svc-card{
+    background:var(--ink); padding:32px 26px;
+  }
+  .svc-card .num{
+    font-family:'JetBrains Mono', monospace; color:var(--copper); font-size:13px; margin-bottom:22px; display:block;
+  }
+  .svc-card h3{font-family:'Fraunces', serif; font-size:20px; font-weight:600; margin-bottom:10px;}
+  .svc-card p{font-size:14px; color:var(--mist); line-height:1.65;}
+
+  /* ---------- stack ---------- */
+  .stack-strip{
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    max-width:900px; margin:0 auto;
+  }
+  .stack-pill{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    border:1px solid rgba(27,36,34,0.2); border-radius:20px;
+    padding:8px 18px; color:var(--slate);
+  }
+
+  /* ---------- work showcase ---------- */
+  .work-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:28px; max-width:1100px; margin:0 auto;
+  }
+  .work-card{
+    background:#fff; border:1px solid rgba(27,36,34,0.12);
+    border-radius:6px; overflow:hidden;
+  }
+  .work-card img, .work-card video{
+    width:100%; display:block; aspect-ratio:16/10; object-fit:cover;
+  }
+  .work-card .cap{
+    padding:14px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; color:#6b756f;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--ridge); color:var(--paper);
+  }
+  .contact-card{
+    max-width:760px; margin:0 auto;
+    background:var(--ink);
+    border-radius:6px;
+    padding:46px 40px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:14.5px;
+    line-height:2.1;
+  }
+  .contact-card .comment{color:#5f7773;}
+  .contact-card .key{color:var(--copper);}
+  .contact-card .val{color:var(--paper);}
+  .contact-card a.val:hover{color:var(--copper);}
+  .contact-cta-row{margin-top:26px; display:flex; gap:14px; flex-wrap:wrap;}
+
+  footer{
+    background:var(--ink); color:var(--mist);
+    text-align:center; padding:30px 6vw;
+    font-size:12.5px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  footer .name{color:var(--paper); font-weight:500;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Nadeem<span>.</span>Ullah</div>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="avatar-row">
+        <img src="assets/nadeem.jpg" alt="Nadeem Ullah">
+        <div class="eyebrow">// web designer & web developer</div>
+      </div>
+      <h1>Nadeem Ullah <br><em>builds websites</em> that work as hard as you do.</h1>
+      <p class="lede">Based in the valleys of Shangla, Khyber Pakhtunkhwa — designing and developing clean, fast, dependable websites for shops, businesses, and individuals across Pakistan and beyond.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/923339745798" class="btn btn-copper">💬 Chat on WhatsApp</a>
+        <a href="mailto:khanjikhan555@gmail.com" class="btn btn-outline">✉ Send an Email</a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Role</strong> — Web Designer / Developer</div>
+      <div><strong>Based in</strong> — Alpuri, Shangla, KPK</div>
+      <div><strong>Available</strong> — Remote & On-site</div>
+      <div><strong>Response</strong> — Within 24 hours</div>
+    </div>
+  </div>
+  <svg class="ridge-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <polygon points="0,120 0,70 150,30 300,80 450,15 600,60 750,10 900,75 1050,35 1200,90 1200,120" fill="#F2EEE3"></polygon>
+  </svg>
+</section>
+
+<div class="strip">building for shops · services · portfolios · startups — from the mountains of shangla to the world</div>
+
+<section class="section" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="kicker">About</div>
+      <h2>A one-person studio, built on craft.</h2>
+    </div>
+    <div>
+      <p>I'm Nadeem Ullah, a web designer and web developer working out of Aloch Puran, District Shangla, KPK. I help shopkeepers, small businesses, and individuals get online with websites that are simple to use, quick to load, and easy to update — no unnecessary complexity, no bloated templates.</p>
+      <p>Every project starts with understanding what the business actually needs, not what looks impressive in a portfolio. That means clear pricing, honest timelines, and a website you can actually explain to your customers.</p>
+      <div class="stat-list">
+        <div class="stat-row"><span class="label">Location</span><span class="val">Shangla, KPK, Pakistan</span></div>
+        <div class="stat-row"><span class="label">Focus</span><span class="val">Design + Development</span></div>
+        <div class="stat-row"><span class="label">Delivery</span><span class="val">Remote-friendly</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="kicker">What I Do</div>
+  <h2 style="max-width:600px;">Services built for small businesses and individuals.</h2>
+  <br>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <span class="num">01</span>
+      <h3>Web Design</h3>
+      <p>Clean, custom layouts designed around your business, not a recycled template.</p>
+    </div>
+    <div class="svc-card">
+      <span class="num">02</span>
+      <h3>Web Development</h3>
+      <p>Fast, responsive, mobile-first websites that work properly on every device.</p>
+    </div>
+    <div class="svc-card">
+      <span class="num">03</span>
+      <h3>Business Websites</h3>
+      <p>Simple sites for shops and services — products, contact, and WhatsApp ordering.</p>
+    </div>
+    <div class="svc-card">
+      <span class="num">04</span>
+      <h3>Maintenance & Updates</h3>
+      <p>Ongoing support to keep your site running and up to date after launch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="kicker" style="text-align:center;">Tools I Use</div>
+  <h2 style="text-align:center; margin-bottom:34px;">Stack & Skills</h2>
+  <div class="stack-strip">
+    <span class="stack-pill">HTML5</span>
+    <span class="stack-pill">CSS3</span>
+    <span class="stack-pill">JavaScript</span>
+    <span class="stack-pill">Responsive Design</span>
+    <span class="stack-pill">WordPress</span>
+    <span class="stack-pill">UI/UX Design</span>
+    <span class="stack-pill">Landing Pages</span>
+    <span class="stack-pill">SEO Basics</span>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="kicker" style="text-align:center;">Work Samples</div>
+  <h2 style="text-align:center; margin-bottom:34px;">Recent Designs</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <img src="assets/work-1.png" alt="Website design promo — Nadeem Ullah">
+      <div class="cap">Service promo design</div>
+    </div>
+    <div class="work-card">
+      <img src="assets/work-2.png" alt="Professional website design showcase">
+      <div class="cap">Before / after website redesign concept</div>
+    </div>
+    <div class="work-card">
+      <video src="assets/intro.mp4" controls playsinline></video>
+      <div class="cap">Intro video</div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="kicker">Get In Touch</div>
+  <h2 style="max-width:600px; margin-bottom:34px;">Let's build your website.</h2>
+  <div class="contact-card">
+    <div class="comment">// contact details</div>
+    <div><span class="key">name</span>: <span class="val">Nadeem Ullah</span></div>
+    <div><span class="key">phone_1</span>: <a class="val" href="tel:+923339745798">0333-9745798</a></div>
+    <div><span class="key">phone_2</span>: <a class="val" href="tel:+923412565659">0341-2565659</a></div>
+    <div><span class="key">email</span>: <a class="val" href="mailto:khanjikhan555@gmail.com">khanjikhan555@gmail.com</a></div>
+    <div><span class="key">address</span>: <span class="val">Aloch Puran, District Shangla, Khyber Pakhtunkhwa, Pakistan</span></div>
+    <div class="contact-cta-row">
+      <a href="https://wa.me/923339745798" class="btn btn-copper">💬 WhatsApp</a>
+      <a href="mailto:khanjikhan555@gmail.com" class="btn btn-outline">✉ Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span class="name">Nadeem Ullah</span> — Web Designer & Web Developer, Shangla, KPK, Pakistan
+</footer>
+
+</body>
+</html>
